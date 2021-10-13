@@ -1,2 +1,0 @@
-# we don't want jupyter notebooks to be deployed
-*.ipynb
