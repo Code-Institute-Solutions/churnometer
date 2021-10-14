@@ -23,7 +23,7 @@ def page_summary_body():
 
     st.write(
         f"* For additional information, please visit and **read** the "
-        f"[Project README file](https://github.com/FernandoRocha88/WalkthroughProject02/blob/main/README.md).")
+        f"[Project README file](https://github.com/Code-Institute-Solutions/churnometer).")
     
 
     st.success(
