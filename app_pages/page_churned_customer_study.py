@@ -3,6 +3,7 @@ from src.data_management import load_telco_data
 
 import matplotlib.pyplot as plt
 import seaborn as sns
+sns.set_style("whitegrid")
 
 from feature_engine.discretisation import ArbitraryDiscretiser
 import numpy as np
@@ -76,17 +77,15 @@ def inspect_data(df):
 
 
 
-
-
 def churn_level_per_variable(df_eda):
     target_var = 'Churn'
-    sns.set_style("whitegrid")
-
+    
     for col in df_eda.drop([target_var], axis=1).columns.to_list():
         if df_eda[col].dtype == 'object':
             plot_categorical(df_eda, col, target_var)
         else:
             plot_numerical(df_eda, col, target_var)
+
 
 def plot_categorical(df, col, target_var):
     fig, axes = plt.subplots(figsize=(12, 5))
@@ -103,6 +102,7 @@ def plot_numerical(df, col, target_var):
 
 
 
+
 def parallel_plot_churn(df_eda):
     tenure_map = [-np.Inf, 6, 12, 18, 24, np.Inf]
     disc = ArbitraryDiscretiser(binning_dict={'tenure': tenure_map})
@@ -110,7 +110,6 @@ def parallel_plot_churn(df_eda):
     
     n_classes = len(tenure_map) - 1
     classes_ranges = disc.binner_dict_['tenure'][1:-1]
-
     LabelsMap = {}
     for n in range(0,n_classes):
         if n == 0: LabelsMap[n] = f"<{classes_ranges[0]}"
