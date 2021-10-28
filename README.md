@@ -102,7 +102,7 @@ As a Data Analyst from Code Institute Consulting, you are requested by the Telco
 * We want an ML model to cluster similar customer behavior. It is an unsupervised model.
 * Our ideal outcome is to provide our sales team with reliable insight into onboarding customers with a higher sense of loyalty.
 * The model success metrics are
-	* at least 0.45 for silhouette score
+	* at least 0.45 for average silhouette score
 	* The ML model is considered a failure if: model suggests from more than 15 clusters (might become too difficult to interpret in practical terms)
 * The output is defined as an additional column appended to the dataset. This column represents the clusters suggestions. It is a categorical and nominal variable, represented by numbers, starting at 0.
 * Heuristics: Currently there is no approach to group similar customers
