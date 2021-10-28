@@ -1,0 +1,4 @@
+Cluster,OnlineBackup,MonthlyCharges,PhoneService,Churn
+0,'No internet service': 100% ,20.0 -- 21.0,'Yes': 100% ,"'0': 93% , '1': 7% "
+1,"'No': 56% , 'Yes': 44% ",70.0 -- 96.0,'Yes': 100% ,"'0': 67% , '1': 33% "
+2,"'No': 58% , 'Yes': 42% ",34.0 -- 51.0,'No': 100% ,"'0': 75% , '1': 25% "
