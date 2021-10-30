@@ -39,14 +39,29 @@ def page_cluster_body():
 
   st.write("#### Cluster Profile")
   statement = (
-    f"We define that a cluster is churnable, when there is **more than 30% churn**. \n"
-    f"* We consider clusters 1 as churnable. "
-    f"Technically, cluster 3 is almost churnable. "
-    f"Clusters 0 and 2 are non-churnable. \n"
-    f"* Consider the cluster profile below and the existing product offers to "
-    f" suggest a plan that the prospect can move for a better or a non-churnable cluster.")
-  st.write(statement)
-  
+    f"* Historically, **users in Clusters 0  don't tend to Churn** "
+    f"whereas in **Cluster 1 a third of users churned** "
+    f"and in **Cluster 2 a quarter of users churned**. \n"
+    f"* From the Predict Churn study, we noticed that the ContractType and InternetService "
+    f"are the predictors variables to determine if a person will churn or not.\n"
+    f"* **One potential action** when you detect that a given prospect is expected to churn and "
+    f"will belong to cluster 1 or 2, is to mainly avoid month to month contract type, "
+    f"like we learned in the churned customer study. \n"
+    f"* The salesperson would have then to consider the current product and services "
+    f"plan availability and encourage the prospect to move to another contract."
+    )
+  st.info(statement)
+
+  statement = (
+    f"* The cluster profile interpretation allowed us to label the cluster in the following fashion:\n"
+    f"* Cluster 0 - user without internet, a low spender with phone\n"
+    f"* Cluster 1 - user with Internet, a high spender with phone\n"
+    f"* Cluster 2 - user with Internet , a mid spender without phone"
+    )
+  st.success(statement)
+
+
+
   # hack to not display index in st.table() or st.write()
   cluster_profile.index = [" "] * len(cluster_profile) 
   st.table(cluster_profile)

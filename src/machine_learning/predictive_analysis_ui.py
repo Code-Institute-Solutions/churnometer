@@ -63,13 +63,24 @@ def predict_cluster(X_live, cluster_features, cluster_pipeline, cluster_profile)
 
 
 	statement = (
-		f"### The prospect is expected to belong to **cluster {cluster_prediction[0]}** \n"
-		f" We consider **cluster 1 as churnable** and **cluster 3 as almost churnable**. "
-		f" We consider **clusters 0 and 2 as non-churnable** \n"
-		f"* Consider the cluster profile below and the existing product offers to "
-		f"suggest a plan so that the prospect can move to a better or a non-churnable cluster.")
+		f"### The prospect is expected to belong to **cluster {cluster_prediction[0]}**")
 	st.write("---")
 	st.write(statement)
+
+	statement = (
+		f"* Historically, **users in Clusters 0  don't tend to Churn** "
+		f"whereas in **Cluster 1 a third of users churned** "
+		f"and in **Cluster 2 a quarter of users churned**."
+		)
+	st.info(statement)
+
+	statement = (
+		f"* The cluster profile interpretation allowed us to label the cluster in the following fashion:\n"
+		f"* Cluster 0 - user without internet, a low spender with phone\n"
+		f"* Cluster 1 - user with Internet, a high spender with phone\n"
+		f"* Cluster 2 - user with Internet , a mid spender without phone"
+		)
+	st.success(statement)
 
 
 	# hack to not display index in st.table() or st.write()

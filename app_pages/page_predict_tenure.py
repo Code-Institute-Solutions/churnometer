@@ -11,7 +11,7 @@ def page_predict_tenure_body():
     # load tenure pipeline files
     version = 'v1'
     tenure_pipe = load_pkl_file(f"outputs/ml_pipeline/predict_tenure/{version}/clf_pipeline.pkl")
-    tenure_labels_map = load_pkl_file(f"outputs/ml_pipeline/predict_tenure/{version}/labels_map.pkl")
+    tenure_labels_map = load_pkl_file(f"outputs/ml_pipeline/predict_tenure/{version}/label_map.pkl")
     tenure_feat_importance = plt.imread(f"outputs/ml_pipeline/predict_tenure/{version}/features_importance.png")
     X_train = pd.read_csv(f"outputs/ml_pipeline/predict_tenure/{version}/X_train.csv")
     X_test = pd.read_csv(f"outputs/ml_pipeline/predict_tenure/{version}/X_test.csv")
@@ -25,11 +25,10 @@ def page_predict_tenure_body():
         f"* Initially we wanted to have a Regressor model to predict tenure for a likely "
         f"churnable prospect, but the **regressor performance was weak**. We converted the target to "
         f"classes and transformed the ML task into a **classification** problem. \n"
-        f"* We tuned this pipeline for Recall on '<4.0' class, "
+        f"* We tuned this pipeline for Recall on '<4 months' class, "
         f"since we are interested in this project, to detect any prospect that may churn soon. \n"
-        f"* We notice that <4.0 and +20.0 classes have reasonable levels of performance, where "
-        f"'4.0 to 20.0' performance is poor. This will be a limitation of our project. And we "
-        f"accept that a prediction on <4.0 and +20.0 will be handled as a <4.0.")
+        f"* We notice that '<4.0' and '+20.0' classes have reasonable levels of performance, where "
+        f"'4.0 to 20.0' performance is poor. This will be a limitation of our project.")
     st.write("---")
 
 

@@ -9,7 +9,7 @@ from src.machine_learning.predictive_analysis_ui import (
 
 def page_prospect_body():
 	
-	# load churn pipleline files
+	# load predict churn files
 	version = 'v1'
 	churn_pipe_dc_fe = load_pkl_file(f'outputs/ml_pipeline/predict_churn/{version}/clf_pipeline_data_cleaning_feat_eng.pkl')
 	churn_pipe_model = load_pkl_file(f"outputs/ml_pipeline/predict_churn/{version}/clf_pipeline_model.pkl")
@@ -18,16 +18,16 @@ def page_prospect_body():
 					.to_list()
 					)
 
-	# load tenure pipeline files
+	# load predict tenure files
 	version = 'v1'
 	tenure_pipe = load_pkl_file(f"outputs/ml_pipeline/predict_tenure/{version}/clf_pipeline.pkl")
-	tenure_labels_map = load_pkl_file(f"outputs/ml_pipeline/predict_tenure/{version}/labels_map.pkl")
+	tenure_labels_map = load_pkl_file(f"outputs/ml_pipeline/predict_tenure/{version}/label_map.pkl")
 	tenure_features = (pd.read_csv(f"outputs/ml_pipeline/predict_tenure/{version}/X_train.csv")
 					.columns
 					.to_list()
 					)
 	
-	# load cluster pipeline files
+	# load cluster analysis files
 	version = 'v1'
 	cluster_pipe = load_pkl_file(f"outputs/ml_pipeline/cluster_analysis/{version}/cluster_pipeline.pkl")
 	cluster_features = (pd.read_csv(f"outputs/ml_pipeline/cluster_analysis/{version}/TrainSet.csv")
@@ -48,7 +48,7 @@ def page_prospect_body():
 	)
 	st.write(
 		f"* Please insert prospect information for predictive analysis: "
-		f"Take a look at the main features in the ML pipelines to make sense of"
+		f"Take a look at the main features in the ML pipelines to make sense of "
 		f"which feature impacts most which ML pipeline.")
 
 	
@@ -96,9 +96,8 @@ def DrawInputsWidgets():
 	percentageMin, percentageMax = 0.4, 2.0
 
 
-	# create empy DataFrame, which will be the live data
+	# create an empty DataFrame, which will be the live data
 	X_live = pd.DataFrame([], index=[0]) 
-
 
 	with col1:
 		feature = "Contract"
@@ -137,7 +136,7 @@ def DrawInputsWidgets():
 
 
 	with col5:
-		feature = "OnlineSecurity"
+		feature = "OnlineBackup"
 		st_widget = st.selectbox(
 			label= feature,
 			options= df[feature].unique()
@@ -145,7 +144,7 @@ def DrawInputsWidgets():
 	X_live[feature] = st_widget
 
 	with col6:
-		feature = "DeviceProtection"
+		feature = "PhoneService"
 		st_widget = st.selectbox(
 			label= feature,
 			options= df[feature].unique()
