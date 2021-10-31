@@ -85,9 +85,9 @@ def predict_cluster(X_live, cluster_features, cluster_pipeline, cluster_profile)
 
 	statement = (
 		f"* The cluster profile interpretation allowed us to label the cluster in the following fashion:\n"
-		f"* Cluster 0 - user without internet, a low spender with phone\n"
-		f"* Cluster 1 - user with Internet, a high spender with phone\n"
-		f"* Cluster 2 - user with Internet , a mid spender without phone"
+		f"* Cluster 0 has user without internet, who is a low spender with phone\n"
+		f"* Cluster 1 has user with Internet, who is a high spender with phone\n"
+		f"* Cluster 2 has user with Internet , who is a mid spender without phone"
 		)
 	st.success(statement)
 
