@@ -9,7 +9,7 @@ from src.machine_learning.evaluate_clf import clf_performance
 def page_predict_churn_body():
 
     version = 'v1'
-    # load needed files and pipelines
+    # load needed files
     churn_pipe_dc_fe = load_pkl_file(f'outputs/ml_pipeline/predict_churn/{version}/clf_pipeline_data_cleaning_feat_eng.pkl')
     churn_pipe_model = load_pkl_file(f"outputs/ml_pipeline/predict_churn/{version}/clf_pipeline_model.pkl")
     churn_feat_importance = plt.imread(f"outputs/ml_pipeline/predict_churn/{version}/features_importance.png")

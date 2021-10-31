@@ -14,7 +14,7 @@ def page_churned_customer_study_body():
     # load data
     df = load_telco_data()
 
-    # hard copied from data visualization notebook
+    # hard copied from churned customer study notebook
     vars_to_study = ['Contract', 'InternetService', 'OnlineSecurity', 'TechSupport', 'tenure']
 
     st.write("### Churned Customer Study")
@@ -24,9 +24,14 @@ def page_churned_customer_study_body():
         f"to a churned customer.")
 
 
-    # inspect collected data
+    # inspect data
     if st.checkbox("Inspect Customer Base"):
-        inspect_data(df)
+        st.write(
+            f"* The dataset has {df.shape[0]} rows and {df.shape[1]} columns, "
+            f"find below the first 10 rows.")
+        
+        st.write(df.head(10))
+
     st.write("---")
 
 
@@ -57,23 +62,10 @@ def page_churned_customer_study_body():
         
     # Parallel plot
     if st.checkbox("Parallel Plot"):
-        st.write(
-            f"* Information in yellow indicates the profile from a churned customer")
+        st.write(f"* Information in yellow indicates the profile from a churned customer")
         parallel_plot_churn(df_eda)
 
-
-
-
-
-def inspect_data(df):
-    st.write(
-        f"* The dataset has {df.shape[0]} rows and {df.shape[1]} columns, find below the first 10 "
-        f"rows and a quick inspection of each variable content.")
-    st.write(df.head(10))
     
-    for col in df.columns: st.write(f"* **{col}**:\n{df[col].unique()}\n")
-    
-
 
 
 
