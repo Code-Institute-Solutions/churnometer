@@ -23,13 +23,22 @@ def page_cluster_body():
 
 
   st.write("### ML Pipeline: Cluster Analysis")
+
+  st.write("### ML Pipeline: Predict Prospect Churn")    
+  st.info(
+      f"* We refitted the cluster pipeline using fewer variables and it delivered equivalent "
+      f"performance to the pipeline fitted using all variables.\n"
+      f"* The pipeline average silhouette score is 0.68"
+      )
+  st.write("---")
+
   st.write("#### Cluster ML Pipeline steps")
   st.write(cluster_pipe)
 
   st.write("#### The features the model was trained with")
   st.write(cluster_features)
 
-  st.write("#### Clusters Silhouette")
+  st.write("#### Clusters Silhouette Plot")
   st.image(cluster_silhouette)
 
   cluster_distribution_per_variable(df=df_churn_vs_clusters, target='Churn')

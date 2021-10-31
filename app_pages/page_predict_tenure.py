@@ -23,10 +23,12 @@ def page_predict_tenure_body():
     st.write("### ML Pipeline: Predict Prospect Tenure")    
     st.info(
         f"* Initially we wanted to have a Regressor model to predict tenure for a likely "
-        f"churnable prospect, but the **regressor performance was weak**. We converted the target to "
-        f"classes and transformed the ML task into a **classification** problem. \n"
-        f"* We tuned this pipeline for Recall on '<4 months' class, "
-        f"since we are interested in this project, to detect any prospect that may churn soon. \n"
+        f"churnable prospect, but the **regressor performance didn't meet project requirement**: "
+        f"0.7 of R2 Score on train and test sets. "
+        f"We converted the target to classes and transformed the ML task into a **classification** problem. \n"
+        f"* The pipeline was tuned aiming at least 0.8 Recall on '<4 months' class, on train and test sets, "
+        f"since we are interested in this project, to detect any prospect that may churn soon. "
+        f"The classifer performance was 0.8 on both sets.\n"
         f"* We notice that '<4.0' and '+20.0' classes have reasonable levels of performance, where "
         f"'4.0 to 20.0' performance is poor. This will be a limitation of our project.")
     st.write("---")
