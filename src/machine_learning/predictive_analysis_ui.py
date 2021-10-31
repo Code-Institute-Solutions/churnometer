@@ -53,7 +53,7 @@ def predict_tenure(X_live, tenure_features, tenure_pipeline, tenure_labels_map):
 		statement = (
 			f"* The model has predicted the prospect would stay **{tenure_levels} months**, "
 			f"however we acknowledge that the recall and precision levels for {tenure_levels} is not "
-			f"strong. The AI tends to identify potential churners, but for this prospect ir is not "
+			f"strong. The AI tends to identify potential churners, but for this prospect the AI is not "
 			f"confident enough on how long the prospect would stay."
 		)
 		
