@@ -15,7 +15,7 @@ app = MultiPage(app_name= "Churnometer")
 
 # Add your app pages here using .add_page()
 app.add_page("Quick Project Summary", page_summary_body)
-app.add_page("Churned Customer Study", page_churned_customer_study_body)
+app.add_page("Customer Base Churn Study", page_churned_customer_study_body)
 app.add_page("Prospect Churnometer", page_prospect_body)
 app.add_page("Project Hypothesis and Validation", page_project_hypothesis_body)
 app.add_page("ML: Prospect Churn", page_predict_churn_body)
