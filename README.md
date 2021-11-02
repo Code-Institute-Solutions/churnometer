@@ -52,17 +52,16 @@ As a Data Analyst from Code Institute Consulting, you are requested by the Telco
 
 
 ## Rationale to map the business requirements to the Data Visualizations and ML tasks
-* **Business Requirement 1**: Data Visualization and Correlation study
-	* We will inspect the data related to the customer base.
-	* We will conduct a correlation study (Pearson and Spearman) to better understand how the variables are correlated to Churn.
-	* We will plot the main variables against Churn to visualize insights.
+* **Business Requirement 1:** Data Visualization and Correlation study
+* We will inspect the data related to the customer base.
+* We will conduct a correlation study (Pearson and Spearman) to understand better how the variables are correlated to Churn.
+* We will plot the main variables against Churn to visualize insights.
 
-
-* **Business Requirement 2**:  Classification, Regression, Cluster, Data Analysis
-	* We want to predict if a prospect will churn or not. We want to build a binary classifier.
-	* We want to predict tenure level for a prospect that is expected to churn. We want to build a regression model or, depending on the regressor performance, change the ML task to classification.
-	* We want to cluster similar customers, to predict from which cluster a prospect will belong.
-	* We want to understand a cluster profile to present potential options that could maintain or bring the prospect to a non-churnable cluster.
+* **Business Requirement 2:** Classification, Regression, Cluster, Data Analysis
+* We want to predict if a prospect will churn or not. We want to build a binary classifier.
+* We want to predict the tenure level for a prospect that is expected to churn. We want to build a regression model or change the ML task to classification depending on the regressor performance.
+* We want to cluster similar customers, to predict from which cluster a prospect will belong.
+* We want to understand a cluster profile to present potential options to maintain or bring the prospect to a non-churnable cluster.
 
 
 
@@ -72,14 +71,14 @@ As a Data Analyst from Code Institute Consulting, you are requested by the Telco
 ### Predict Churn
 #### Classification Model
 * We want an ML model to predict if a prospect will churn based on historical data from the customer base, which doesn't include tenure and total charges since these values are zero for a prospect. The target variable is categorical and contains 2-classes. We consider a **classification model**. It is a supervised model, a 2-class, single-label, classification model output: 0 (no churn), 1 (yes churn)
-* Our ideal outcome is to provide our sales team with reliable insight into how to onboard customers with a higher sense of loyalty.
+* Our ideal outcome is to provide our sales team with reliable insight into onboarding customers with a higher sense of loyalty.
 * The model success metrics are
 	* at least 80% Recall for Churn, on train and test set 
 	* The ML model is considered a failure if:
 		* after 3 months of usage, more than 30% of newly onboarded customers churn (it is an indication that the offers are not working or the model is not detecting potential churners)
 		* Precision for no Churn is lower than 80% on train and test set. (We don't want to offer a free discount to many non-churnable prospects)
 * The model output is defined as a flag, indicating if a prospect will churn or not and the associate probability of churning. If the prospect is online, the prospect will have already provided the input data via a form. If the prospect talks to a salesperson, the salesperson will interview to gather the input data and feed it into the App. The prediction is made on the fly (not in batches).
-* Heuristics: Currently there is no approach to predict churn on prospects
+* Heuristics: Currently, there is no approach to predict churn on prospects
 * The training data to fit the model come from the Telco Customer. This dataset contains about 7 thousand customer records.
 	* Train data - target: Churn; features: all other variables, but tenure, total charges and customerID
 
@@ -88,40 +87,40 @@ As a Data Analyst from Code Institute Consulting, you are requested by the Telco
 * We want an ML model to predict tenure levels, in months, for a prospect expected to churn. A target variable is a discrete number. We consider a **regression model**, which is supervised and uni-dimensional.
 * Our ideal outcome is to provide our sales team with reliable insight into onboarding customers with a higher sense of loyalty.
 * The model success metrics are
-	* At least 0.7 for R2 score , on train and test set
+	* At least 0.7 for R2 score, on train and test set
 	* The ML model is considered a failure if:
 		* after 12 months of usage, the model's predictions are 50% off more than 30% of the time. Say, a prediction is >50% off if predicted 10 months and the actual value was 2 months.
 * The output is defined as a continuous value for tenure in months. It is assumed that this model will predict tenure if the Predict Churn Classifier predicts 1 (yes for churn). If the prospect is online, the prospect will have already provided the input data via a form. If the prospect talks to a salesperson, the salesperson will interview to gather the input data and feed it into the App. The prediction is made on the fly (not in batches).
-* Heuristics: Currently there is no approach to predict tenure levels on prospect.
+* Heuristics: Currently, there is no approach to predict tenure levels on a prospect.
 * The training data to fit the model come from the Telco Customer. This dataset contains about 7 thousand customer records.
 	* Train data - filter data where Churn == 1, then drop Churn variable. Target: tenure; features: all other variables, but total charges and customerID
 
 
 #### Classification Model
-* Before the analysis, we visualized a Regressor pipeline to predict Churn, however the performance didn’t meet the requirement (at least 0.7 for R2 score , on train and test set)
-* We used a tecnhique to convert the ML task from Regression to Classification. We discretized the target into 3 ranges: <4 months, 4-20 months and +20 months. 
-* The classification pipeline is able to detect a prospect that would likely churn in less than 4 months, and a prospect that would likely churn in more than 20 months.
+* Before the analysis, we visualized a Regressor pipeline to predict Churn; however, the performance didn’t meet the requirement (at least 0.7 for R2 score, on train and test set)
+* We used a technique to convert the ML task from Regression to Classification. We discretized the target into 3 ranges: <4 months, 4-20 months and +20 months. 
+* The classification pipeline can detect a prospect that would likely churn in less than 4 months, and a prospect that would likely churn in more than 20 months.
 * A target variable is categorical and contains 3 classes. We consider a **classification model**, which is supervised and uni-dimensional.
 * Our ideal outcome is to provide our sales team with reliable insight into onboarding customers with a higher sense of loyalty.
 * The model success metrics are
 	* At least 0.8 Recall for <4 months, on train and test set
 	* The ML model is considered a failure if:
-		* after 3 months of usage, more than 30% of customer that were expected to churn in <4 months do not churn
+		* after 3 months of usage, more than 30% of customers that were expected to churn in <4 months do not churn
 * The output is defined as a class, which maps to a range of tenure in months. It is assumed that this model will predict tenure if the Predict Churn Classifier predicts 1 (yes for churn). If the prospect is online, the prospect will have already provided the input data via a form. If the prospect talks to a salesperson, the salesperson will interview to gather the input data and feed it into the App. The prediction is made on the fly (not in batches).
-* Heuristics: Currently there is no approach to predict tenure levels on prospect.
+* Heuristics: Currently, there is no approach to predict tenure levels on a prospect.
 * The training data to fit the model come from the Telco Customer. This dataset contains about 7 thousand customer records.
 	* Train data - filter data where Churn == 1, then drop Churn variable. Target: tenure; features: all other variables, but total charges and customerID
 
 
 ### Cluster Analysis
 #### Clustering Model
-* We want an ML model to cluster similar customer behavior. It is an unsupervised model.
+* We want an ML model to cluster similar customer behaviour. It is an unsupervised model.
 * Our ideal outcome is to provide our sales team with reliable insight into onboarding customers with a higher sense of loyalty.
 * The model success metrics are
 	* at least 0.45 for average silhouette score
 	* The ML model is considered a failure if: model suggests from more than 15 clusters (might become too difficult to interpret in practical terms)
 * The output is defined as an additional column appended to the dataset. This column represents the clusters suggestions. It is a categorical and nominal variable, represented by numbers, starting at 0.
-* Heuristics: Currently there is no approach to group similar customers
+* Heuristics: Currently, there is no approach to group similar customers
 * The training data to fit the model come from the Telco Customer. This dataset contains about 7 thousand customer records.
 	* Train data - features: all variables, but customerID, TotalCharges, Churn, and tenure 
 
@@ -135,18 +134,18 @@ As a Data Analyst from Code Institute Consulting, you are requested by the Telco
 	* State Business Requirements
 
 ### Page 2: Customer Base Churn Study
-* Before the analysis, we just know we want this page to answer business requirement 1, but we couldn't know in advance which plots would be displayed there.
-* After data analysis, we agreed with stakeholders that the page wil: 
+* Before the analysis, we knew we wanted this page to answer business requirement 1, but we couldn't know in advance which plots would need to be displayed.
+* After data analysis, we agreed with stakeholders that the page will: 
 	* State business requirement 1
-	* Checkbox: data inspection on customer base (display amount of rows and columns in the data and the first 10 rows)
-	* Display most correlated variables to churn and the conclusions
+	* Checkbox: data inspection on customer base (display the number of rows and columns in the data, and display the first ten rows of the data)
+	* Display the most correlated variables to churn and the conclusions
 	* Checkbox: Individual plots showing the churn levels for each correlated variable 
-	* Checkbox: Parallel plot using Churn and correlated variables
+	* Checkbox: Parallel plot using Churn and correlated variables 
 
 ### Page 3: Prospect Churnometer
 * State business requirement 2
 * Set of widgets inputs, which relates to the prospect profile. Each set of inputs is related to a given ML task to predict prospect Churn, Tenure and Cluster.
-* "Run predictive analysis" button, that serves the prospect data to our ML pipelines, and predicts if the prospect will churn or not, if so, when. It also shows to which cluster the prospect belongs and the cluster's profile. For the churn and tenure predictions, the page will inform the associated probability for churning and for tenure level.
+* "Run predictive analysis" button that serves the prospect data to our ML pipelines, and predicts if the prospect will churn or not, if so, when. It also shows to which cluster the prospect belongs and the cluster's profile. For the churn and tenure predictions, the page will inform the associated probability for churning and for tenure level.
 
 ### Page 4: Project Hypothesis and Validation
 * For each project hypothesis, describe the conclusion and how you validated it.
