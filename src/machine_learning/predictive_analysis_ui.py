@@ -11,7 +11,7 @@ def predict_churn(X_live, churn_features, churn_pipeline_dc_fe, churn_pipeline_m
 	# predict
 	churn_prediction = churn_pipeline_model.predict(X_live_churn_dc_fe)
 	churn_prediction_proba = churn_pipeline_model.predict_proba(X_live_churn_dc_fe)
-
+	# st.write(churn_prediction_proba)
 
 	# Create a logic to display the results
 	churn_chance = churn_prediction_proba[0,churn_prediction][0]*100
@@ -21,7 +21,6 @@ def predict_churn(X_live, churn_features, churn_pipeline_dc_fe, churn_pipeline_m
 	statement = (
 		f'### There is {churn_chance.round(1)}% probability '
 		f'that this prospect **{churn_result} churn**.')
-
 
 	st.write(statement)
 
@@ -39,6 +38,7 @@ def predict_tenure(X_live, tenure_features, tenure_pipeline, tenure_labels_map):
 	# predict
 	tenure_prediction = tenure_pipeline.predict(X_live_tenure)
 	tenure_prediction_proba = tenure_pipeline.predict_proba(X_live_tenure)
+	# st.write(tenure_prediction_proba)
 
 	# create a logic to display the results
 	proba = tenure_prediction_proba[0,tenure_prediction][0]*100
@@ -68,7 +68,6 @@ def predict_cluster(X_live, cluster_features, cluster_pipeline, cluster_profile)
 
 	# predict 
 	cluster_prediction = cluster_pipeline.predict(X_live_cluster)
-
 
 
 	statement = (

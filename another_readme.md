@@ -85,13 +85,17 @@ As a Data Analyst from Code Institute Consulting, you are requested by the Telco
 
 ### Predict Tenure
 #### Regression Model
-* We want an ML model to predict tenure levels, in months, for a prospect expected to churn. A target variable is a discrete number. We consider a **regression model**, which is supervised and uni-dimensional.
+* We want an ML model to predict tenure levels, in months, for a prospect expected to churn.
+* Initially we visualized a Regressor pipeline to predict Churn, however the regressor performance didn’t meet the requirement performance (at least 0.7 for R2 score , on train and test set)
+* We used a tecnhique to convert the ML task from Regression to Classification. We discretized the target into 3 ranges: <4 months, 4-20 months and +20 months. 
+* The classification pipeline is able to detect a prospect that would likely churn in less than 4 months, and a prospect that would likely churn in more than 20 months.
+* A target variable is categorical and contains 3 classes. We consider a **classification model**, which is supervised and uni-dimensional.
 * Our ideal outcome is to provide our sales team with reliable insight into onboarding customers with a higher sense of loyalty.
 * The model success metrics are
-	* At least 0.7 for R2 score , on train and test set
+	* At least 0.8 Recall for <4 months, on train and test set
 	* The ML model is considered a failure if:
-		* after 12 months of usage, the model's predictions are 50% off more than 30% of the time. Say, a prediction is >50% off if predicted 10 months and the actual value was 2 months.
-* The output is defined as a continuous value for tenure in months. It is assumed that this model will predict tenure if the Predict Churn Classifier predicts 1 (yes for churn). If the prospect is online, the prospect will have already provided the input data via a form. If the prospect talks to a salesperson, the salesperson will interview to gather the input data and feed it into the App. The prediction is made on the fly (not in batches).
+		* after 3 months of usage, more than 30% of customer that were expected to churn in <4 months do not churn
+* The output is defined as a class, which maps to a range of tenure in months. It is assumed that this model will predict tenure if the Predict Churn Classifier predicts 1 (yes for churn). If the prospect is online, the prospect will have already provided the input data via a form. If the prospect talks to a salesperson, the salesperson will interview to gather the input data and feed it into the App. The prediction is made on the fly (not in batches).
 * Heuristics: Currently there is no approach to predict tenure levels on prospect.
 * The training data to fit the model come from the Telco Customer. This dataset contains about 7 thousand customer records.
 	* Train data - filter data where Churn == 1, then drop Churn variable. Target: tenure; features: all other variables, but total charges and customerID
@@ -126,8 +130,9 @@ As a Data Analyst from Code Institute Consulting, you are requested by the Telco
 * Checkbox: Parallel plot using Churn and correlated variables
 
 ### Page 3: Prospect Churnometer
-* User Interface with prospect inputs and predictions indicating if the prospect will churn or not, if so, when, to which cluster the prospect belongs, and an indication on which cluster the prospect belong to.
-* In addition, present cluster profile; so the person serving the prospect can suggest an offer that will bring the prospect to a non-churnable customer.
+* State business requirement 2
+* set of widgets inputs, which relates to the prospect profile. Each set of inputs is related to a given ML task to predict Churn, Tenure and Cluster
+* "Run predictive analysis" button, that serves the prospect data to our ML pipelines, and predicts if the prospect will churn or not, if so, when. It also shows to which cluster the prospect belongs
 
 ### Page 4: Project Hypothesis and Validation
 * For each project hypothesis, describe the conclusion and how you validated it.
