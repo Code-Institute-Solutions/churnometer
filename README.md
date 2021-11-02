@@ -97,6 +97,22 @@ As a Data Analyst from Code Institute Consulting, you are requested by the Telco
 	* Train data - filter data where Churn == 1, then drop Churn variable. Target: tenure; features: all other variables, but total charges and customerID
 
 
+#### Classification Model
+* Before the analysis, we visualized a Regressor pipeline to predict Churn, however the performance didn’t meet the requirement (at least 0.7 for R2 score , on train and test set)
+* We used a tecnhique to convert the ML task from Regression to Classification. We discretized the target into 3 ranges: <4 months, 4-20 months and +20 months. 
+* The classification pipeline is able to detect a prospect that would likely churn in less than 4 months, and a prospect that would likely churn in more than 20 months.
+* A target variable is categorical and contains 3 classes. We consider a **classification model**, which is supervised and uni-dimensional.
+* Our ideal outcome is to provide our sales team with reliable insight into onboarding customers with a higher sense of loyalty.
+* The model success metrics are
+	* At least 0.8 Recall for <4 months, on train and test set
+	* The ML model is considered a failure if:
+		* after 3 months of usage, more than 30% of customer that were expected to churn in <4 months do not churn
+* The output is defined as a class, which maps to a range of tenure in months. It is assumed that this model will predict tenure if the Predict Churn Classifier predicts 1 (yes for churn). If the prospect is online, the prospect will have already provided the input data via a form. If the prospect talks to a salesperson, the salesperson will interview to gather the input data and feed it into the App. The prediction is made on the fly (not in batches).
+* Heuristics: Currently there is no approach to predict tenure levels on prospect.
+* The training data to fit the model come from the Telco Customer. This dataset contains about 7 thousand customer records.
+	* Train data - filter data where Churn == 1, then drop Churn variable. Target: tenure; features: all other variables, but total charges and customerID
+
+
 ### Cluster Analysis
 #### Clustering Model
 * We want an ML model to cluster similar customer behavior. It is an unsupervised model.
@@ -119,28 +135,38 @@ As a Data Analyst from Code Institute Consulting, you are requested by the Telco
 	* State Business Requirements
 
 ### Page 2: Customer Base Churn Study
-* It will answer business requirement 1
+* Before the analysis, we just know we want this page to answer business requirement 1, but we couldn't know in advance which plots would be displayed there.
+* After data analysis, we agreed with stakeholders that the page wil: 
+	* State business requirement 1
+	* Checkbox: data inspection on customer base (display amount of rows and columns in the data and the first 10 rows)
+	* Display most correlated variables to churn and the conclusions
+	* Checkbox: Individual plots showing the churn levels for each correlated variable 
+	* Checkbox: Parallel plot using Churn and correlated variables
 
 ### Page 3: Prospect Churnometer
-* User Interface with prospect inputs and predictions indicating if the prospect will churn or not, if so, when, to which cluster the prospect belongs, and an indication on which cluster the prospect belong to.
-* In addition, present cluster profile; so the person serving the prospect can suggest an offer that will bring the prospect to a non-churnable customer.
+* State business requirement 2
+* Set of widgets inputs, which relates to the prospect profile. Each set of inputs is related to a given ML task to predict prospect Churn, Tenure and Cluster.
+* "Run predictive analysis" button, that serves the prospect data to our ML pipelines, and predicts if the prospect will churn or not, if so, when. It also shows to which cluster the prospect belongs and the cluster's profile. For the churn and tenure predictions, the page will inform the associated probability for churning and for tenure level.
 
 ### Page 4: Project Hypothesis and Validation
 * For each project hypothesis, describe the conclusion and how you validated it.
 
 ### Page 5: Predict Churn
+* Considerations and conclusions after the pipeline is trained
 * Present ML pipeline steps
 * Feature importance
 * Pipeline performance
 
 ### Page 6: Predict Tenure
+* Considerations and conclusions after the pipeline is trained
 * Present ML pipeline steps
 * Feature importance
 * Pipeline performance
 
 ### Page 7: Cluster Analysis
+* Considerations and conclusions after the pipeline is trained
 * Present ML pipeline steps
-* Silhouette score
+* Silhouette plot
 * Clusters distribution across Churn levels
 * Relative Percentage (%) of Churn in each cluster
 * Most important features to define a cluster
