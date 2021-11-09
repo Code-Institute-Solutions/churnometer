@@ -22,9 +22,7 @@ def page_cluster_body():
   df_churn_vs_clusters['Clusters'] = cluster_pipe['model'].labels_
 
 
-  st.write("### ML Pipeline: Cluster Analysis")
-
-  st.write("### ML Pipeline: Predict Prospect Churn")    
+  st.write("### ML Pipeline: Cluster Analysis") 
   st.info(
       f"* We refitted the cluster pipeline using fewer variables and it delivered equivalent "
       f"performance to the pipeline fitted using all variables.\n"
