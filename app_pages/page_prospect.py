@@ -46,10 +46,7 @@ def page_prospect_body():
         f"Based on that, present potential factors that could maintain and/or bring  "
         f"the prospect to a non-churnable cluster."
 	)
-	st.write(
-		f"* Please insert prospect information for predictive analysis: "
-		f"Take a look at the main features in the ML pipelines to make sense of "
-		f"which feature impacts most which ML pipeline.")
+	st.write("---")
 
 	
 	# Generate Live Data
@@ -58,7 +55,7 @@ def page_prospect_body():
 
 
 	# predict on live data
-	st.write("---")
+	
 	if st.button("Run Predictive Analysis"): 
 		churn_prediction = predict_churn(X_live, churn_features,
 										churn_pipe_dc_fe, churn_pipe_model)
