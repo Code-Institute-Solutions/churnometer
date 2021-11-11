@@ -42,6 +42,7 @@ def page_churned_customer_study_body():
         f"The most correlated variable are: **{vars_to_study}**"
     )
 
+    # text based on "02 - Churned Customer Study" notebook - "Conclusions and Next steps" section
     st.info(
         f"The correlation indications and plots below interpretation converge. "
         f"It is indicated that: \n"
@@ -53,7 +54,7 @@ def page_churned_customer_study_body():
     )
 
 
-
+    # code copied from "02 - Churned Customer Study" notebook - "EDA on selected variables" section
     df_eda = df.filter(vars_to_study + ['Churn'])
 
     # Individual plots per variable
@@ -68,7 +69,7 @@ def page_churned_customer_study_body():
     
 
 
-
+# function created using "02 - Churned Customer Study" notebook code - "Variables Distribution by Churn" section
 def churn_level_per_variable(df_eda):
     target_var = 'Churn'
     
@@ -79,6 +80,7 @@ def churn_level_per_variable(df_eda):
             plot_numerical(df_eda, col, target_var)
 
 
+# code copied from "02 - Churned Customer Study" notebook - "Variables Distribution by Churn" section
 def plot_categorical(df, col, target_var):
     fig, axes = plt.subplots(figsize=(12, 5))
     sns.countplot(data=df, x=col, hue=target_var,order = df[col].value_counts().index)
@@ -86,6 +88,8 @@ def plot_categorical(df, col, target_var):
     plt.title(f"{col}", fontsize=20,y=1.05)        
     st.pyplot(fig) # st.pyplot() renders image, in notebook is plt.show()
 
+
+# code copied from "02 - Churned Customer Study" notebook - "Variables Distribution by Churn" section
 def plot_numerical(df, col, target_var):
     fig, axes = plt.subplots(figsize=(8, 5))
     sns.histplot(data=df, x=col, hue=target_var, kde=True,element="step") 
@@ -94,9 +98,12 @@ def plot_numerical(df, col, target_var):
 
 
 
-
+# function created using "02 - Churned Customer Study" notebook code - "Parallel Plot" section"
 def parallel_plot_churn(df_eda):
-    tenure_map = [-np.Inf, 6, 12, 18, 24, np.Inf]
+
+    tenure_map = [-np.Inf, 6, 12, 18, 24, np.Inf] # hard coded from "disc.binner_dict_['tenure']"" result,
+                                                  # found at "02 - Churned Customer Study" notebook
+                                                  # under "Parallel Plot" section
     disc = ArbitraryDiscretiser(binning_dict={'tenure': tenure_map})
     df_parallel = disc.fit_transform(df_eda)
     

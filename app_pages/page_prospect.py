@@ -87,7 +87,7 @@ def DrawInputsWidgets():
 	df = load_telco_data()
 	percentageMin, percentageMax = 0.4, 2.0
 
-    # we create input widgets only for 8 features	
+    # we create input widgets only for 6 features	
 	col1, col2, col3, col4 = st.beta_columns(4)
 	col5, col6, col7, col8 = st.beta_columns(4)
 	
