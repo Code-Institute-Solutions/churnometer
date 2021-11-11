@@ -14,12 +14,12 @@ def predict_churn(X_live, churn_features, churn_pipeline_dc_fe, churn_pipeline_m
 	# st.write(churn_prediction_proba)
 
 	# Create a logic to display the results
-	churn_chance = churn_prediction_proba[0,churn_prediction][0]*100
+	churn_prob = churn_prediction_proba[0,churn_prediction][0]*100
 	if churn_prediction == 1: churn_result = 'will'
 	else: churn_result = 'will not'
 
 	statement = (
-		f'### There is {churn_chance.round(1)}% probability '
+		f'### There is {churn_prob.round(1)}% probability '
 		f'that this prospect **{churn_result} churn**.')
 
 	st.write(statement)

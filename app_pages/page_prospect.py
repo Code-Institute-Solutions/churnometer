@@ -50,7 +50,7 @@ def page_prospect_body():
 
 	
 	# Generate Live Data
-	check_variables_for_UI(tenure_features, churn_features, cluster_features)
+	# check_variables_for_UI(tenure_features, churn_features, cluster_features)
 	X_live = DrawInputsWidgets()
 
 
