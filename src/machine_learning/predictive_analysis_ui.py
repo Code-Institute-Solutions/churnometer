@@ -75,6 +75,7 @@ def predict_cluster(X_live, cluster_features, cluster_pipeline, cluster_profile)
 	st.write("---")
 	st.write(statement)
 
+  # text based on "07 - Modeling and Evaluation - Cluster Sklearn" notebook conclusions
 	statement = (
 		f"* Historically, **users in Clusters 0  don't tend to Churn** "
 		f"whereas in **Cluster 1 a third of users churned** "
@@ -82,6 +83,7 @@ def predict_cluster(X_live, cluster_features, cluster_pipeline, cluster_profile)
 		)
 	st.info(statement)
 
+  # text based on "07 - Modeling and Evaluation - Cluster Sklearn" notebook conclusions
 	statement = (
 		f"* The cluster profile interpretation allowed us to label the cluster in the following fashion:\n"
 		f"* Cluster 0 has user without internet, who is a low spender with phone\n"
