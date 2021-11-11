@@ -5,6 +5,7 @@ def page_summary_body():
 
     st.write("### Quick Project Summary")
 
+    # text based on README file - "Dataset Content" section
     st.info(
         f"**Project Terms & Jargons**\n"
         f"* A **customer** is a person who consumes your service or product.\n"
@@ -24,6 +25,7 @@ def page_summary_body():
         f"[Project README file](https://github.com/Code-Institute-Solutions/churnometer).")
     
 
+    # copied from README file - "Business Requirements" section
     st.success(
         f"The project has 2 business requirements:\n"
         f"* 1 - The client is interested to understand the patterns from customer base, "

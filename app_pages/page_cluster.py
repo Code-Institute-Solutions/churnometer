@@ -44,6 +44,7 @@ def page_cluster_body():
   st.write("#### Most important features to define a cluster")
   st.image(features_to_cluster)
 
+  # text based on "07 - Modeling and Evaluation - Cluster Sklearn" notebook conclusions
   st.write("#### Cluster Profile")
   statement = (
     f"* Historically, **users in Clusters 0  don't tend to Churn** "
@@ -59,6 +60,7 @@ def page_cluster_body():
     )
   st.info(statement)
 
+  # text based on "07 - Modeling and Evaluation - Cluster Sklearn" notebook conclusions
   statement = (
     f"* The cluster profile interpretation allowed us to label the cluster in the following fashion:\n"
     f"* Cluster 0 has user without internet, who is a low spender with phone\n"
@@ -68,9 +70,7 @@ def page_cluster_body():
   st.success(statement)
 
 
-
-  # hack to not display index in st.table() or st.write()
-  cluster_profile.index = [" "] * len(cluster_profile) 
+  cluster_profile.index = [" "] * len(cluster_profile) # hack to not display the index in st.table() or st.write()
   st.table(cluster_profile)
 
 
@@ -78,9 +78,8 @@ def page_cluster_body():
 
 
 
-
+# code coped from "07 - Modeling and Evaluation - Cluster Sklearn" notebook - under "Cluster Analysis" section
 def cluster_distribution_per_variable(df, target):
-
 
   df_bar_plot = df.value_counts(["Clusters", target]).reset_index() 
   df_bar_plot.columns = ['Clusters',target,'Count']
@@ -89,8 +88,8 @@ def cluster_distribution_per_variable(df, target):
   st.write(f"#### Clusters distribution across {target} levels")
   fig = px.bar(df_bar_plot, x='Clusters', y='Count', color=target, width=800, height=350)
   fig.update_layout(xaxis=dict(tickmode= 'array',tickvals= df['Clusters'].unique()))
-  st.plotly_chart(fig)
-  # fig.show()
+  st.plotly_chart(fig)  # we replaced fig.show() for a streamlit command to render the plot
+
 
 
   df_relative = (df
@@ -105,10 +104,7 @@ def cluster_distribution_per_variable(df, target):
  
 
   st.write(f"#### Relative Percentage (%) of {target} in each cluster")
-  fig = px.line(df_relative, x='Clusters',y='Relative Percentage (%)', color=target,
-                width=800, height=350)
+  fig = px.line(df_relative, x='Clusters',y='Relative Percentage (%)', color=target,width=800, height=350)
   fig.update_layout(xaxis=dict(tickmode= 'array',tickvals= df['Clusters'].unique()))
   fig.update_traces(mode='markers+lines')
-  st.plotly_chart(fig)
-  # fig.show()
- 
+  st.plotly_chart(fig) # we replaced fig.show() for a streamlit command to render the plot

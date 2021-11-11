@@ -33,8 +33,6 @@ def page_predict_tenure_body():
         f"'4.0 to 20.0' performance is poor. This will be a limitation of our project.")
     st.write("---")
 
-
-
     # show pipeline steps
     st.write("* ML pipeline to predict tenure when prospect is expected to churn")
     st.write(tenure_pipe)
