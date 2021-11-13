@@ -45,9 +45,9 @@ As a Data Analyst from Code Institute Consulting, you are requested by the Telco
 
 
 ## Hypothesis and how to validate?
-* We suspect customers are churning with low tenure levels.
+* 1 - We suspect customers are churning with low tenure levels.
 	* A Correlation study can help in this investigation
-* A customer survey showed our customers appreciate fibre Optic.
+* 2 - A customer survey showed our customers appreciate fibre Optic.
 	* A Correlation study can help in this investigation
 
 
