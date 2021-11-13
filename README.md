@@ -149,6 +149,10 @@ As a Data Analyst from Code Institute Consulting, you are requested by the Telco
 
 ### Page 4: Project Hypothesis and Validation
 * For each project hypothesis, describe the conclusion and how you validated it.
+* 1 - We suspect customers are churning with low tenure levels
+	* Correct. The correlation study at Churned Customer Study supports that.
+* 2 -  A customer survey showed our customers appreciate fibre Optic.
+	* A churned user typically has Fiber Optic, as demonstrated by a Churned Customer Study. The insight will be taken to the survey team for further discussions and investigations.
 
 ### Page 5: Predict Churn
 * Considerations and conclusions after the pipeline is trained
