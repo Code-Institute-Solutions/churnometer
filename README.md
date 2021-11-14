@@ -148,7 +148,7 @@ As a Data Analyst from Code Institute Consulting, you are requested by the Telco
 * "Run predictive analysis" button that serves the prospect data to our ML pipelines, and predicts if the prospect will churn or not, if so, when. It also shows to which cluster the prospect belongs and the cluster's profile. For the churn and tenure predictions, the page will inform the associated probability for churning and for tenure level.
 
 ### Page 4: Project Hypothesis and Validation
-* Before the analysis, we knew we wanted this page to describe each project hypothesis, the conclusions, and how you validated each. After the data analysis, we can report that:
+* Before the analysis, we knew we wanted this page to describe each project hypothesis, the conclusions, and how we validated each. After the data analysis, we can report that:
 * 1 - We suspect customers are churning with low tenure levels
 	* Correct. The correlation study at Churned Customer Study supports that.
 * 2 -  A customer survey showed our customers appreciate fibre Optic.
