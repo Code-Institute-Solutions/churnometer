@@ -19,7 +19,8 @@ def page_predict_churn_body():
 
 
     
-    st.write("### ML Pipeline: Predict Prospect Churn")    
+    st.write("### ML Pipeline: Predict Prospect Churn")  
+    # display pipeline training summary conclusions  
     st.info(
         f"* The pipeline was tuned aiming at least 0.80 Recall on 'Yes Churn' class, "
         f"since we are interested in this project in detecting a potential churner. \n"
@@ -34,7 +35,7 @@ def page_predict_churn_body():
     st.write(" * The first is responsible for data cleaning and feature engineering.")
     st.write(churn_pipe_dc_fe)
     
-    st.write("* The second for feature scaling and modelling. ")
+    st.write("* The second for feature scaling and modelling.")
     st.write(churn_pipe_model)
     
 

@@ -20,6 +20,7 @@ def page_predict_tenure_body():
  
 
     st.write("### ML Pipeline: Predict Prospect Tenure")    
+    # display pipeline training summary conclusions
     st.info(
         f"* Initially we wanted to have a Regressor model to predict tenure for a likely "
         f"churnable prospect, but the **regressor performance didn't meet project requirement**: "

@@ -42,7 +42,7 @@ def page_churned_customer_study_body():
         f"The most correlated variable are: **{vars_to_study}**"
     )
 
-    # text based on "02 - Churned Customer Study" notebook - "Conclusions and Next steps" section
+    # Text based on "02 - Churned Customer Study" notebook - "Conclusions and Next steps" section
     st.info(
         f"The correlation indications and plots below interpretation converge. "
         f"It is indicated that: \n"
@@ -54,7 +54,7 @@ def page_churned_customer_study_body():
     )
 
 
-    # code copied from "02 - Churned Customer Study" notebook - "EDA on selected variables" section
+    # Code copied from "02 - Churned Customer Study" notebook - "EDA on selected variables" section
     df_eda = df.filter(vars_to_study + ['Churn'])
 
     # Individual plots per variable
@@ -98,7 +98,7 @@ def plot_numerical(df, col, target_var):
 
 
 
-# function created using "02 - Churned Customer Study" notebook code - "Parallel Plot" section"
+# function created using "02 - Churned Customer Study" notebook code - Parallel Plot section
 def parallel_plot_churn(df_eda):
 
     tenure_map = [-np.Inf, 6, 12, 18, 24, np.Inf] # hard coded from "disc.binner_dict_['tenure']"" result,

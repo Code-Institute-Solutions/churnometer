@@ -23,6 +23,7 @@ def page_cluster_body():
 
 
   st.write("### ML Pipeline: Cluster Analysis") 
+  # display pipeline training summary conclusions
   st.info(
       f"* We refitted the cluster pipeline using fewer variables and it delivered equivalent "
       f"performance to the pipeline fitted using all variables.\n"

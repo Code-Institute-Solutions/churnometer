@@ -96,6 +96,8 @@ def DrawInputsWidgets():
 	# create an empty DataFrame, which will be the live data
 	X_live = pd.DataFrame([], index=[0]) 
 	
+	# from here on we draw the widget based on the variable type (numerical or categorical)
+	# and set initial values
 	with col1:
 		feature = "Contract"
 		st_widget = st.selectbox(
@@ -130,7 +132,6 @@ def DrawInputsWidgets():
 			options= df[feature].unique()
 			)
 	X_live[feature] = st_widget
-
 
 	with col5:
 		feature = "OnlineBackup"
