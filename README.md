@@ -1,5 +1,5 @@
 ## Dataset Content
-The dataset is sourced from [Kaggle](https://www.kaggle.com/gyanshashwat1611/telecom-churn-dataset). We created then a fictitious user story where predictive analytics can be applied in a real project in the workplace.
+The dataset is sourced from [Kaggle](https://www.kaggle.com/codeinstitute/telecom-churn-dataset). We created then a fictitious user story where predictive analytics can be applied in a real project in the workplace.
 Each row represents a customer, each column contains a customer attribute. The data set includes information about:
 * Services that each customer has signed up for, like phone, multiple lines, internet, online security, online backup, device protection, tech support, streaming TV and movies
 * Customer information, like how long they've been a customer if they churned out, their contract type, payment method, paperless billing, monthly charges, and total charges
