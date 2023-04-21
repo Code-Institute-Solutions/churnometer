@@ -1,3 +1,19 @@
+## How to use this repo
+
+1. Fork this repo and copy the https URL of your forked churnometer repo
+
+1. Log into <a href="https://app.codeanywhere.com/" target="_blank" rel="noreferrer">CodeAnywhere</a> with your GitHub account.
+
+1. On your Dashboard, click on the New Workspace button
+
+1. Paste in the URL you copied from GitHub earlier
+
+1. Click Create
+
+1. Wait for the workspace to open. This can take a few minutes.
+
+Your workspace is now ready to use. When you want to return to this project, you can find it in your CodeAnywhere <a href="https://app.codeanywhere.com/" target="_blank" rel="noreferrer">Dashboard</a>. You should only create 1 workspace per project.
+
 ## Dataset Content
 The dataset is sourced from [Kaggle](https://www.kaggle.com/codeinstitute/telecom-churn-dataset). We created then a fictitious user story where predictive analytics can be applied in a real project in the workplace.
 Each row represents a customer, each column contains a customer attribute. The data set includes information about:
