@@ -26,7 +26,7 @@ RUN set -ex \
     && pyenv global $PYTHON_VERSION \
     && pyenv rehash \
     && python3 -m pip install --no-cache-dir --upgrade pip \
-    && python3 -m pip install --no-cache-dir --upgrade setuptools wheel virtualenv pipenv pylint rope flake8  mypy autopep8 pep8 pylama pydocstyle bandit notebook twine
+    && python3 -m pip install --no-cache-dir --upgrade setuptools wheel virtualenv pipenv pylint rope flake8  mypy autopep8 pep8 pylama pydocstyle bandit notebook twine jupyter
 
 ENV PATH=$PATH:"/home/codeany/.local/bin"
 
@@ -40,6 +40,11 @@ RUN echo 'alias heroku_config=". $HOME/.theia/heroku_config.sh"' >> ~/.bashrc
 
 COPY ./build-assets/make_url.py /home/$USERNAME/.theia/make_url.py
 RUN echo 'alias make_url="python3 $HOME/.theia/make_url.py "' >> ~/.bashrc
+
+RUN mkdir -p /home/$USERNAME/.jupyter/custom
+COPY ./build-assets/jupyter_notebook_config.py /home/$USERNAME/.jupyter/jupyter_notebook_config.py
+
+COPY ./build-assets/custom.js /home/$USERNAME/.jupyter/custom/custom.js
 
 USER root
 RUN chown -R $USERNAME:$USERNAME /home/$USERNAME/.theia
