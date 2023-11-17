@@ -14,17 +14,17 @@
 
 1. Open a new terminal and `pip3 install -r requirements.txt`
 
-1. In the terminal type `pip3 install jupyter`
+1. In the terminal, type `pip3 install jupyter`
 
-1. In the terminal type `jupyter notebook --NotebookApp.token='' --NotebookApp.password=''` to start the jupyter server.
+1. In the terminal, type `jupyter notebook --NotebookApp.token='' --NotebookApp.password=''` to start the jupyter server.
 
 1. Open port 8888 preview or browser
 
-1. Open the jupyter_notebooks directory in the jupyter webpage that has opened and click on the notebook you want to open.
+1. Open the jupyter_notebooks directory in the jupyter webpage that has opened, and click on the notebook you want to open.
 
 1. Click the button Not Trusted and choose Trust.
 
-Note that the kernel says Python 3. It inherits from the workspace so it will be Python-3.8.18 as installed by our template. To confirm this you can use `! python --version` in a notebook code cell.
+Note that the kernel says Python 3. It inherits from the workspace, so it will be Python-3.8.18 as installed by our template. To confirm this, you can use `! python --version` in a notebook code cell.
 
 Your workspace is now ready to use. When you want to return to this project, you can find it in your Cloud IDE Dashboard. You should only create 1 workspace per project.
 
@@ -78,7 +78,7 @@ As a Data Analyst from Code Institute Consulting, you are requested by the Telco
 ## Hypothesis and how to validate?
 - 1 - We suspect customers are churning with low tenure levels.
 	- A Correlation study can help in this investigation
-- 2 - A customer survey showed our customers appreciate fibre Optic.
+- 2 - A customer survey showed our customers appreciate Fibre Optic.
 	- A Correlation study can help in this investigation
 
 
@@ -91,7 +91,7 @@ As a Data Analyst from Code Institute Consulting, you are requested by the Telco
 - **Business Requirement 2:** Classification, Regression, Cluster and Data Analysis
 	- We want to predict if a prospect will churn or not. We want to build a binary classifier.
 	- We want to predict the tenure level for a prospect that is expected to churn. We want to build a regression model or change the ML task to classification depending on the regressor performance.
-	- We want to cluster similar customers, to predict from which cluster a prospect will belong.
+	- We want to cluster similar customers to predict from which cluster a prospect will belong.
 	- We want to understand a cluster profile to present potential options to maintain or bring the prospect to a non-churnable cluster.
 
 
@@ -150,7 +150,7 @@ As a Data Analyst from Code Institute Consulting, you are requested by the Telco
 - The model success metrics are
 	- at least 0.45 for the average silhouette score
 	- The ML model is considered a failure if the model suggests from more than 15 clusters (might become too difficult to interpret in practical terms)
-- The output is defined as an additional column appended to the dataset. This column represents the cluster's suggestions. It is a categorical and nominal variable, represented by numbers, starting at 0.
+- The output is defined as an additional column appended to the dataset. This column represents the cluster's suggestions. It is a categorical and nominal variable represented by numbers starting at 0.
 - Heuristics: Currently, there is no approach to grouping similar customers
 - The training data to fit the model comes from the Telco Customer. This dataset contains about 7 thousand customer records.
 	- Train data - features: all variables, but customerID, TotalCharges, Churn, and tenure 
@@ -176,13 +176,13 @@ As a Data Analyst from Code Institute Consulting, you are requested by the Telco
 ### Page 3: Prospect Churnometer
 - State business requirement 2
 - Set of widgets inputs, which relates to the prospect profile. Each set of inputs is related to a given ML task to predict prospect Churn, Tenure and Cluster.
-- "Run predictive analysis" button that serves the prospect data to our ML pipelines, and predicts if the prospect will churn or not, if so, when. It also shows to which cluster the prospect belongs and the cluster's profile. For the churn and tenure predictions, the page will inform the associated probability for churning and tenure level.
+- "Run predictive analysis" button that serves the prospect data to our ML pipelines and predicts if the prospect will churn or not, if so, when. It also shows to which cluster the prospect belongs and the cluster's profile. For the churn and tenure predictions, the page will inform the associated probability for churning and tenure level.
 
 ### Page 4: Project Hypothesis and Validation
 - Before the analysis, we knew we wanted this page to describe each project hypothesis, the conclusions, and how we validated each. After the data analysis, we can report that:
 - 1 - We suspect customers are churning with low tenure levels
 	- Correct. The correlation study at Churned Customer Study supports that.
-- 2 -  A customer survey showed our customers appreciate fibre Optic.
+- 2 -  A customer survey showed our customers appreciate Fibre Optic.
 	- A churned user typically has Fiber Optic, as demonstrated by a Churned Customer Study. The insight will be taken to the survey team for further discussions and investigations.
 
 ### Page 5: Predict Churn
