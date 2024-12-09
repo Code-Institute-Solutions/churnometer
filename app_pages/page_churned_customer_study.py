@@ -62,7 +62,7 @@ def page_churned_customer_study_body():
     # Parallel plot
     if st.checkbox("Parallel Plot"):
         st.write(
-            f"* Information in yellow indicates the profile from a churned customer")
+            f"* Information in white indicates the profile from a churned customer")
         parallel_plot_churn(df_eda)
 
 
