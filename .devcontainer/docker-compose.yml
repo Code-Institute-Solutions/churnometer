@@ -1,0 +1,4 @@
+version: '3'
+services:
+  app:
+    image: public.ecr.aws/m5f1e7g7/ci-project-templates-predictive-analytics:version1.0
